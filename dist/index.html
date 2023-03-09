@@ -1,5 +1,4 @@
 
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,7 +6,16 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Biene Tech | WEB3 Development</title>
+    <title>BieneTech AG - Crypto solutions</title>
+    <meta name="description" content="We provide a range of services crypto mining software, onchain solutions including De-Fi, smart contract development, and consulting and training services.">
+    <meta name="keywords" content="crypto, mining, software, bitcoin, ethereum, blockchain solutions, decentralized apps, decentralised, dapps">
+
+    <meta property="og:title" content="BieneTech AG - Crypto solutions" />
+    <meta property="og:type" content="image/png" />
+    <meta property="og:image" content="images/og.png" />
+    <link rel="icon" type="image/x-icon" href="images/favicon/favicon.ico">
+
+
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -28,17 +36,17 @@
             </h1>
 
             <p class="welcome__description">
-                We provide a range of services crypto mining software, on chain solutions including De-Fi, smart
+                We provide a range of services crypto mining software, onchain solutions including De-Fi, smart
                 contract development, and consulting and training services.
             </p>
 
-            <button type="button" class="welcome__more">
+            <button type="button" class="welcome__more" id="scrollDown">
                 learn more
                 <img src="images/arrow.svg" alt="">
             </button>
         </section>
 
-        <section class="about">
+        <section id="about" class="about">
             <div class="about__left">
                 <img src="images/about-pic.svg" alt="">
             </div>
@@ -176,8 +184,7 @@
 
 
                 <p class="mission__text">
-                    At BieneTech AG, our mission is to revolutionize the world of cryp-tocurrencies and web 3
-                    technologies by providing innovative and secure solutions to support the growth of the industry. We are dedicated to delivering cutting-edge software and services to both individual and institutional miners, and to create a user-friendly platform for users to securely manage and their hardware assets. Our goal is to empower people and organisations to improve their businesses by providing them with solutions, that harness the full potential of blockchain technology.
+                    At BieneTech AG, our mission is to revolutionize the world of cryptocurrencies and web 3 technologies by providing innovative and secure solutions to support the growth of the industry. We are dedicated to delivering cutting-edge software and services to both individual and institutional miners, and to create a user-friendly platform for users to securely manage and their hardware assets. Our goal is to empower people and organisations to improve their businesses by providing them with solutions, that harness the full potential of blockchain technology. 
                 </p>
             </div>
         </section>
@@ -203,7 +210,7 @@
                         </h3>
 
                         <p class="services__item__desc">
-                            Our vision is to be a leading provider of cryptocurrency and web 3 solutions, recognized for our commitment to security, transparency, and customer satisfaction.
+                            Our vision is to be a leading provider of cryptocurrency and web 3 solutions, recognized for our commitment to security, transparency, and customer satisfaction. We aim to create onchain and offchain solutions that serve the needs of people from all walks of life, regardless of their technical background. 
                         </p>
                     </div>
 
@@ -264,9 +271,9 @@
             <ul class="footer__info">
                 <li>
                     <span>address:</span>
-                    <p>
+                    <a href="https://www.google.com/maps/place/BieneTech+AG/@46.8849405,8.6359929,17z/data=!4m6!3m5!1s0x47854350d7c8db3f:0x1ae35fb98edea083!8m2!3d46.8849369!4d8.6381816!16s/g/11q1c_gmt8" target="_blank">
                         BieneTech AG, Schiesshüttenweg 6, 6460 Altdorf, Switzerland
-                    </p>
+                    </a>
                 </li>
 
                 <li>
@@ -284,5 +291,31 @@
 
 
     </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const scrollBtn = document.getElementById('scrollDown');
+            const aboutSection = document.getElementById('about');
+            scrollBtn.addEventListener("click", function () {
+                aboutSection.scrollIntoView({behavior: "smooth", block: "start"});
+            })
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+
+
+                    if (entry.isIntersecting) {
+                        scrollBtn.classList.add('anim');
+                        return; // if we added the class, exit the function
+                    }
+
+                    // We're not intersecting, so remove the class!
+                    scrollBtn.classList.remove('anim');
+                });
+            });
+
+            observer.observe(document.querySelector('.welcome__more'));
+        });
+    </script>
 </body>
 </html>

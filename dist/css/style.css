@@ -13,6 +13,34 @@
     --screensize: 700;
   }
 }
+@-webkit-keyframes moveUpDown {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(0, 8px);
+    transform: translate(0, 8px);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+@keyframes moveUpDown {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(0, 8px);
+    transform: translate(0, 8px);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
 body {
   padding: 0;
   margin: 0;
@@ -40,6 +68,8 @@ ul, li {
 
 button {
   font-family: "Ubuntu", sans-serif;
+  outline: none;
+  cursor: pointer;
 }
 
 .section-title {
@@ -51,6 +81,11 @@ button {
 .header {
   background-color: #1a2530;
   padding: calc(12 / var(--screensize) * 100vw);
+}
+@media (max-width: 900px) {
+  .header {
+    display: none;
+  }
 }
 
 .header__logo {
@@ -156,6 +191,15 @@ button {
   margin-top: calc(21 / var(--screensize) * 100vw);
   width: calc(30 / var(--screensize) * 100vw);
   height: calc(30 / var(--screensize) * 100vw);
+  -webkit-transition: 0.5s ease;
+  -o-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+.welcome__more.anim img {
+  -webkit-animation-duration: 2.5s;
+  animation-duration: 2.5s;
+  -webkit-animation-name: moveUpDown;
+  animation-name: moveUpDown;
 }
 
 .about {
@@ -263,8 +307,8 @@ button {
 }
 
 .services__title {
-  padding-bottom: calc(31 / var(--screensize) * 100vw);
-  margin-bottom: calc(50 / var(--screensize) * 100vw);
+  padding-bottom: calc(56 / var(--screensize) * 100vw);
+  margin-bottom: calc(78 / var(--screensize) * 100vw);
   text-align: center;
   position: relative;
 }
@@ -343,7 +387,7 @@ button {
 }
 
 .services__item__desc {
-  padding-left: calc(80 / var(--screensize) * 100vw);
+  padding-left: calc(84 / var(--screensize) * 100vw);
   font-size: calc(24 / var(--screensize) * 100vw);
   letter-spacing: 0.05em;
   font-weight: 300;
@@ -362,7 +406,7 @@ button {
   max-width: unset;
   background-color: #363976;
   padding-top: calc(67 / var(--screensize) * 100vw);
-  height: calc(301 / var(--screensize) * 100vw);
+  min-height: calc(301 / var(--screensize) * 100vw);
 }
 .services__item-big .services__item__desc {
   max-width: calc(1010 / var(--screensize) * 100vw);
@@ -413,7 +457,7 @@ button {
 }
 
 .mission__title {
-  padding-bottom: calc(31 / var(--screensize) * 100vw);
+  padding-bottom: calc(47 / var(--screensize) * 100vw);
   margin-bottom: calc(82 / var(--screensize) * 100vw);
   position: relative;
 }
